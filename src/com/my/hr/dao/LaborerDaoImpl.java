@@ -1,4 +1,4 @@
-package com.my.hr.dao;
+﻿package com.my.hr.dao;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +13,7 @@ public class LaborerDaoImpl implements LaborerDao {
 	public LaborerDaoImpl() {
 		this.laborerMap = Configuration.getMapper(LaborerMap.class);
 	}
-	
+
 	@Override
 	public List<Laborer> selectLaborers() {
 		return laborerMap.selectLaborers();
@@ -25,19 +25,17 @@ public class LaborerDaoImpl implements LaborerDao {
 	}
 
 	@Override
-	public int insertLaborer(String laborerName, LocalDate hireDate) {
-		return laborerMap.insertLaborer(new Laborer(0, laborerName, hireDate));
+	public void insertLaborer(String laborerName, LocalDate hireDate) {
+		laborerMap.insertLaborer(laborerName, hireDate);
 	}
 
 	@Override
-	public int updateLaborer(Laborer laborer) {
-		return laborerMap.updateLaborer(laborer);
+	public void updateLaborer(Laborer laborer) {
+		laborerMap.updateLaborer(laborer);
 	}
 
 	@Override
-	public int deleteLaborer(int laborerId) {
-		return laborerMap.deleteLaborer(laborerId);
-	}
+	public void deleteLaborer(int laborerId) {
+		laborerMap.deleteLaborer(laborerId);
+	}	
 }
-
-

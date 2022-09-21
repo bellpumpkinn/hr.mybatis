@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<!DOCTYPE mapper PUBLIC '-//mybatis.org/DTD Mapper 3.0//EN'
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
 	'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 <mapper namespace='com.my.hr.dao.map.LaborerMap'>
 	<select id='selectLaborers' resultMap='laborerMap'>
@@ -14,8 +14,9 @@
 		where laborer_id = #{laborerId}
 	</select>
 	
-	<insert id='insertLaborer'>
-		insert into laborers values(laborers_laborerid_seq.nextval, #{name}, #{hireDate})
+	<insert id="insertLaborer">
+		insert into laborers(laborer_id, name, hire_date)
+		values(laborer_id_seq.nextval, #{name}, #{hireDate})
 	</insert>
 	
 	<update id='updateLaborer'>
@@ -29,10 +30,9 @@
 		where laborer_id = #{laborerId}
 	</delete>
 	
-	<resultMap id='laborerMap' type='com.my.hr.domain.Laborer'>
+	<resultMap id='laborerMap' type='laborer'>
 		<id property='laborerId' column='laborer_id'/>
-		<result property='name' column='laborer_name'/>
+		<result property='name' column='name'/>
 		<result property='hireDate' column='hire_date'/>
 	</resultMap>
-	
 </mapper>

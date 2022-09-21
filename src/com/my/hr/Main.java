@@ -1,4 +1,4 @@
-package com.my.hr;
+Ôªøpackage com.my.hr;
 
 import com.my.hr.dao.LaborerDao;
 import com.my.hr.dao.LaborerDaoImpl;
@@ -7,7 +7,6 @@ import com.my.hr.presentation.LaborerIo;
 import com.my.hr.service.LaborerService;
 import com.my.hr.service.LaborerServiceImpl;
 
-
 public class Main {
 	public static void main(String[] args) {
 		LaborerDao laborerDao = new LaborerDaoImpl();
@@ -15,6 +14,6 @@ public class Main {
 		LaborerIo laborerIo = new LaborerIo(laborerService);
 		
 		laborerIo.play();
-		Console.info("≥°.");
-	} 
+		Console.info("ÎÅù");
+	}
 }

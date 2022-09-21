@@ -1,4 +1,4 @@
-package com.my.hr.service;
+﻿package com.my.hr.service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +12,7 @@ public class LaborerServiceImpl implements LaborerService {
 	public LaborerServiceImpl(LaborerDao laborerDao) {
 		this.laborerDao = laborerDao;
 	}
-	
+
 	@Override
 	public List<Laborer> getLaborers() {
 		return laborerDao.selectLaborers();
@@ -36,5 +36,5 @@ public class LaborerServiceImpl implements LaborerService {
 	@Override
 	public void delLaborer(int laborerId) {
 		laborerDao.deleteLaborer(laborerId);
-	}
+	}	
 }

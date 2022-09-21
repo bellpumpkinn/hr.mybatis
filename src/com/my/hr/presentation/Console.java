@@ -1,4 +1,4 @@
-package com.my.hr.presentation;
+ï»¿package com.my.hr.presentation;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ public interface Console {
 	}
 	
 	static void err(String msg) {
-		System.out.println("[ERROR] " + msg);
+		System.out.println("ERROR] " + msg);
 	}
 	
 	private static void in(String msg) {
@@ -30,8 +30,8 @@ public interface Console {
 			
 			int length = line.length();
 			isGood = 0 < length && length <= len;
-			if(!isGood) err("1ÀÚ ÀÌ»ó " + len + "ÀÚ ÀÌÇÏ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-		} while(!isGood);
+			if(!isGood) err("1ì ì´ìƒ " + len + "ì ì´í•˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+		} while (!isGood);
 		
 		return line;
 	}
@@ -45,24 +45,22 @@ public interface Console {
 			in(msg);
 			line = sc.nextLine().trim();
 			
-			if(line.length() > 0 && line.matches("[0-9]*")) {
+			if(line.length() > 0 & line.matches("[0-9]*")) {
 				try {
 					num = Integer.parseInt(line);
 					isGood = true;
-				} catch (NumberFormatException e) {
-					// 
-				}
+				} catch(NumberFormatException e) {}
 			}
 			
-			if(!isGood) err("0 ÀÌ»óÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+			if(!isGood) err("0ì ì´ìƒì„ ì…ë ¥í•˜ì„¸ìš”.");
 		} while(!isGood);
 		
 		return num;
 	}
 	
 	static LocalDate inDate(String msg) {
-		String line = "";
 		LocalDate date = null;
+		String line = "";
 		
 		do {
 			in(msg);
@@ -71,10 +69,10 @@ public interface Console {
 			if(line.length() > 0) {
 				try {
 					date = LocalDate.parse(line, DateTimeFormatter.ISO_DATE);
-				} catch (DateTimeParseException e) { }
+				} catch(DateTimeParseException e) {}
 			}
 			
-			if(date == null) err("½ÇÁ¦ ³¯Â¥¸¦ YYYY-MM-DD Çü½ÄÀ¸·Î ÀÔ·ÂÇÏ¼¼¿ä.");
+			if(date == null) err("ì‹¤ì œ ë‚ ì§œë¥¼ YYYY-MM-DD í˜•ì‹ìœ¼ë¡œ ì…ë ¥í•˜ì„¸ìš”.");
 		} while(date == null);
 		
 		return date;

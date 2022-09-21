@@ -1,4 +1,4 @@
-package com.my.hr.config;
+﻿package com.my.hr.config;
 
 import java.io.Reader;
 
@@ -10,13 +10,13 @@ public class Configuration {
 	private static SqlSessionFactory sqlSessionFactory;
 	
 	static {
-		try {
+		try {			
 			Reader reader = Resources.getResourceAsReader("com/my/hr/config/sqlMapConfig.xml");
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);			
 		} catch(Exception e) {}
 	}
-	
+
 	public static <T> T getMapper(Class<T> arg) {
-		return sqlSessionFactory.openSession(true).getMapper(arg); 
+		return sqlSessionFactory.openSession(true).getMapper(arg);
 	}
 }
